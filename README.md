@@ -22,15 +22,15 @@ image Url
 
 Feed Entry Description
 
-Clone this repo and execute `mvnw spring-boot:run`. Or inside an IDE, execute the class programmer.personal.feedadapter.DemoGraphQL.FeedAdapterApplication
+Clone this repo and execute `mvnw spring-boot:run`. Or inside an IDE, execute the class programmer.personal.feedadapter.FeedAdapterApplication
 
-You can go to http://localhost:8081/h2-console/login.jsp and enter the following information:
+You can go to http://localhost:8081/h2-console/login.jsp to check the database, and fot that purpose enter the following information:
 
 - JDBC URL: jdbc:h2:mem:testdb
 - User Name: sa
 - Password: 
 
-to check the database or to http://localhost:8081/graphiql to start executing queries. For example:
+or to http://localhost:8081/graphiql to start executing queries. For example:
 
 ```
  {
@@ -54,17 +54,17 @@ to check the database or to http://localhost:8081/graphiql to start executing qu
 
 ## Technology
 
-Spring Boot 2.4
+Spring Boot 2.4.0
 
 JDK 8
 
-[graphql-java](https://github.com/graphql-java/graphql-java), a GraphQL Java implementation
+graphql-java, a GraphQL Java implementation
 
-[GraphiQL](https://github.com/skevy/graphiql-app), an app for editing and testing GraphQL queries/mutations
+GraphiQL, an app for editing and testing GraphQL queries/mutations
 
-Altair ..
+Altair
 
-[Maven](https://maven.apache.org/) (but you can use [Gradle](https://gradle.org/) if you prefer it)
+Maven 
 
 
 
@@ -90,7 +90,7 @@ graphiql-spring-boot-starter
 
 graphql-spring-boot-starter
 
-
+**Note**: Instead of adding the graphql-java-tools dependency, you should be using the spring boot project that contains all sorts of starters.  If you just add graphql-spring-boot-starter it'll pull in the correct  graphql java tools version. Take a look at this small example project: [https://github.com/graphql-java-kickstart/graphql-spring-boot/blob/master/example-graphql-tools](https://github.com/graphql-java-kickstart/graphql-spring-boot/blob/master/example-graphql-tools/build.gradle).
 
 ## Configuration
 
@@ -150,10 +150,6 @@ altair:
     version: 2.1.7
 ```
 
-**Database related parameters:**
-
-TO DO
-
 **Scheduling parameters:** 
 
 feedadapter:
@@ -193,17 +189,12 @@ The application should start up on port 8081.
 ## Clone the source
 
 ```
-$ git clone https://github.com/jovanovamaria/feed-adapter/tree/master
+$ git clone https://github.com/jovanovamaria/feed-adapter.git
 ```
 
-## Scope of functionalities
+## Java development assignment
 
-TO DO
-
-## CI
-
-Jenkins pipeline  TO DO
-SonarQube Report TO DO
+Create a Spring Boot application that polls a RSS feed every 5 minutes, and stores any changes in a in-memory database like h2.The news feed to use is:http://feeds.nos.nl/nosjournaal?format=xml. Create a data model to store atleast the last 10 news items in the database. For each item at least the title, description, publication date and image needs to be stored. It could be an item is updated in the feed, in which case its record in the database should be updated as well.Expose the news items using GraphQL, see https://github.com/graphql-java-kickstart/graphql-spring-boot. Also include altair-spring-boot-starter for exposing the Altair IDE to interact with the GraphQL API.Deliver a (small) readme file along with the source code which describes how to set up and run the application.Preferrably the source code is shared using an online repository such as github or bitbucket.
 
 ## Maintainer
 
