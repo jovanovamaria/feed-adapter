@@ -1,0 +1,20 @@
+type FeedEntry {
+    id: ID!
+    title: String!
+    author: String!
+    publicationDate: String!
+    url: String!
+    imageUrl: String!
+    feedEntryDescription: FeedEntryDescription
+}
+type FeedEntryDescription {
+    id: ID!
+    type: String!
+    mode: String!
+    value: String!
+    feedEntry: FeedEntry
+}
+type Query {
+    findAllFeedEntries: [FeedEntry]!
+    findAllFeedEntryDescriptions: [FeedEntryDescription]!
+}
